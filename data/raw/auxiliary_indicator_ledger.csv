@@ -1,0 +1,12 @@
+year,indicator,value,unit,status,source_url,note
+2020,resident_disposable_income,29573,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/jcygk/jcygk1/202412/W020241204622547828664.pdf,全体常住居民人均可支配收入
+2021,resident_disposable_income,32008,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjgb/202211/t20221128_6044247.html,全体常住居民人均可支配收入
+2022,resident_disposable_income,33073,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202311/W020231130547326570816.pdf,全体常住居民人均可支配收入
+2023,resident_disposable_income,35116,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202411/W020241129568286624398.pdf,全体常住居民人均可支配收入
+2024,resident_disposable_income,36998,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202511/W020251126560102082891.pdf,全体常住居民人均可支配收入
+2021,road_mileage,3084,km,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjgb/202211/t20221128_6044247.html,全区境内通车总里程
+2022,road_mileage,3071,km,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202311/W020231130547326570816.pdf,全区境内通车总里程
+2023,road_mileage,3071,km,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202411/W020241129568286624398.pdf,全区境内通车总里程
+2024,road_mileage,3073,km,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202511/W020251126560102082891.pdf,全区境内通车总里程
+2023,boutique_homestays,304,households,official_actual,https://www.tjjz.gov.cn/zwgk/ZFGZBG_20201207/202401/t20240130_6524881.html,政府工作报告口径
+2024,boutique_homestays,405,households,official_actual,https://www.tjjz.gov.cn/xwzx/spzx/202502/t20250205_6849349.html,政府工作报告及官方新闻口径

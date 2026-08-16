@@ -1,0 +1,17 @@
+﻿year,tourist_arrivals,tourist_arrivals_status,tourism_comprehensive_revenue,tourism_comprehensive_revenue_status,gdp,gdp_status,tertiary_industry_value_added,tertiary_industry_value_added_status,covid_dummy,gdp_definition_break_2019,core_missing_count,boutique_homestays,resident_disposable_income,road_mileage,turnover_10k_cny,room_revenue_10k_cny,meal_revenue_10k_cny,rooms,beds,dining_seats
+2010,848,official_actual,,missing,,missing,,missing,0,0,3,,,,,,,,,
+2011,1098.6,official_actual,46,official_actual,264.5,official_preliminary,165,official_preliminary,0,0,0,,,,,,,,,
+2012,,missing,,missing,,missing,,missing,0,0,4,,,,,,,,,
+2013,1295,official_actual,63.2,official_actual,,missing,,missing,0,0,2,,,,,,,,,
+2014,1554,official_actual,79,official_actual,,missing,,missing,0,0,2,,,,28048,9778,15852,3739,7589,13054
+2015,1814.4,official_actual,94,official_actual,,missing,,missing,0,0,2,,,,29363,12643,14536,4008,7936,12895
+2016,,missing,,missing,,missing,,missing,0,0,4,,,,32816,12261,18283,6744,16386,14448
+2017,2400,official_actual,130,official_actual,,missing,,missing,0,0,2,,,,16500,5855,8540,1402,2772,9160
+2018,2660,official_actual,142,official_actual,381.66,official_actual,,missing,0,0,1,,,,17131,6772,8520,1402,2596,7260
+2019,2800,official_actual,165,official_actual,210.80,official_actual,129.92,official_actual,0,1,0,,,,17399,6538,7927,1391,2600,8710
+2020,,missing,,missing,224.6,official_preliminary,142.55,official_preliminary,1,1,2,,29573,,15125,6068,7237,1441,2672,8040
+2021,,missing,110,official_actual,274.2034,official_revised,161.9732,official_revised,1,1,1,,32008,3084,16824,7126,7341,1342,2474,7946
+2022,,missing,160,official_actual,282.2414,official_revised,171.2106,official_revised,1,1,1,,33073,3071,12130,4632,5325,1085,1934,5184
+2023,2363,official_actual,191.5,official_actual,288.3062,official_final,176.1714,official_final,0,1,0,304,35116,3071,18966,7053,9303,1361,2292,4207
+2024,2643,official_actual,221,official_actual,298.865,official_preliminary,183.9654,official_preliminary,0,1,0,405,36998,3073,17665,7312,9133,2178,3673,3754
+2025,,missing,,missing,311.94,official_preliminary,195.17,official_preliminary,0,1,2,,,,,,,,,

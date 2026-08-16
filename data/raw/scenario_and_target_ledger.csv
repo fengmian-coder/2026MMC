@@ -1,0 +1,6 @@
+year,indicator,value,unit,record_type,source_url,note
+2021,tourist_arrivals,2000,10k_person_trips,official_estimate_lower_bound,https://www.tjjz.gov.cn/xwzx/GSGG20201207/202112/t20211212_5747747.html,原文为“预计突破2000万人次”；仅可用于缺失值情景或下界约束，不等同统计实际值
+2024,tourist_arrivals,2600,10k_person_trips,official_alternative_report,https://www.tjjz.gov.cn/xwzx/spzx/202501/t20250108_6827138.html,另一官方报道使用整数口径；核心表采用政府工作报告更精确的2643
+2024,tourism_comprehensive_revenue,220,100m_cny,official_alternative_report,https://www.tjjz.gov.cn/xwzx/spzx/202512/t20251209_7194184.html,另一官方报道使用整数口径；核心表采用政府工作报告更精确的221
+2025,tourist_arrivals,2800,10k_person_trips,official_target,https://www.tjjz.gov.cn/zwgk/ZFGZBG_20201207/202501/t20250114_6833334.html,2025年预期目标，不能作为2025年实际值
+2025,tourism_comprehensive_revenue,231,100m_cny,official_target,https://www.tjjz.gov.cn/zwgk/ZFGZBG_20201207/202501/t20250114_6833334.html,2025年预期目标，不能作为2025年实际值
