@@ -1,7 +1,7 @@
 ﻿year,tourist_arrivals,tourist_arrivals_status,tourism_comprehensive_revenue,tourism_comprehensive_revenue_status,gdp,gdp_status,tertiary_industry_value_added,tertiary_industry_value_added_status,covid_dummy,gdp_definition_break_2019,core_missing_count,boutique_homestays,fixed_asset_investment,fixed_asset_investment_non_agricultural,resident_disposable_income,road_mileage,road_passenger_volume,rural_disposable_income,tertiary_industry_investment,turnover_10k_cny,room_revenue_10k_cny,meal_revenue_10k_cny,rooms,beds,dining_seats
-2010,848,official_actual,,missing,206.3,official_revised,129.3,official_revised,0,0,1,,,,,,,,,,,,,,
+2010,848,official_actual,35.5,official_actual,206.3,official_revised,129.3,official_revised,0,0,0,,,,,,,,,,,,,,
 2011,1098.6,official_actual,46,official_actual,264.5,official_actual,165,official_actual,0,0,0,,,,,,,,,,,,,,
-2012,,missing,,missing,283.7,official_actual,169.3,official_actual,0,0,2,,420.42,,,,,12580,,,,,,,
+2012,1152,official_actual,52,official_actual,283.7,official_actual,169.3,official_actual,0,0,0,,420.42,,,,,12580,,,,,,,
 2013,1295,official_actual,63.2,official_actual,312.6,official_actual,185.2,official_actual,0,0,0,,529.14,,,,,14338,,,,,,,
 2014,1554,official_actual,79,official_actual,361.1,official_actual,212.91,official_actual,0,0,0,,635.22,,,,,16279,,28048,9778,15852,3739,7589,13054
 2015,1814.4,official_actual,94,official_actual,390.54,official_actual,243.02,official_actual,0,0,0,,713.31,,,,,17650,,29363,12643,14536,4008,7936,12895
@@ -9,9 +9,9 @@
 2017,2400,official_actual,130,official_actual,364.32,official_actual,213.38,official_actual,0,0,0,,,758.02,,,,,,16500,5855,8540,1402,2772,9160
 2018,2660,official_actual,142,official_actual,381.66,official_actual,234.32,official_actual,0,0,0,,,,,,,,,17131,6772,8520,1402,2596,7260
 2019,2800,official_actual,165,official_actual,210.80,official_actual,129.92,official_actual,0,1,0,,,,,,,,,17399,6538,7927,1391,2600,8710
-2020,,missing,,missing,230.34,official_actual,141.6,official_actual,1,1,2,,,,29573,,,,,15125,6068,7237,1441,2672,8040
+2020,1853.73,official_actual,103.4,official_actual,230.34,official_actual,141.6,official_actual,1,1,0,,,,29573,,,,,15125,6068,7237,1441,2672,8040
 2021,,missing,110,official_actual,250.4,official_actual,151.52,official_actual,1,1,1,,,,32008,3084,,,,16824,7126,7341,1342,2474,7946
 2022,,missing,160,official_actual,279.33,official_actual,164.78,official_actual,1,1,1,,,,33073,3071,,,,12130,4632,5325,1085,1934,5184
 2023,2363,official_actual,191.5,official_actual,287.46,official_actual,179.87,official_actual,0,1,0,304,,,35116,3071,,,,18966,7053,9303,1361,2292,4207
 2024,2643,official_actual,221,official_actual,298.87,official_actual,183.97,official_actual,0,1,0,405,,,36998,3073,,,,17665,7312,9133,2178,3673,3754
-2025,,missing,,missing,311.94,official_actual,195.17,official_actual,0,1,2,,,,,,,,,,,,,,
+2025,2691,official_actual,200,official_actual,311.94,official_actual,195.17,official_actual,0,1,0,,,,,,,,,,,,,,
