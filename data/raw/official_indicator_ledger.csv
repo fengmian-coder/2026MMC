@@ -17,7 +17,7 @@
 2017,tourism_comprehensive_revenue,130,亿元,全年,official_actual,天津市蓟州区2018年政府工作报告,https://www.tjjz.gov.cn/zwgk/ZFGZBG_20201207/202012/t20201227_5203142.html,
 2018,tourist_arrivals,2660,万人次,全年,official_actual,天津市蓟州区生态文明建设规划,https://www.tjjz.gov.cn/zwgk/zcwj/qjwj/qzf2/202012/W020201227396987558810.pdf,
 2018,tourism_comprehensive_revenue,142,亿元,全年,official_actual,天津市蓟州区生态文明建设规划,https://www.tjjz.gov.cn/zwgk/zcwj/qjwj/qzf2/202012/W020201227396987558810.pdf,
-2018,gdp,381.66,亿元,全年,official_actual,天津市蓟州区生态文明建设规划,https://www.tjjz.gov.cn/zwgk/zcwj/qjwj/qzf2/202012/W020201227396987558810.pdf,
+2018,gdp,381.662481359373,亿元,全年,official_revised,天津统计年鉴2019·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2019nj/zk/html/24-17-0.xls,官方年鉴表24-17；采用表中精确值
 2019,tourist_arrivals,2800,万人次,全年,official_actual,蓟州区林业发展十四五规划,https://www.tjjz.gov.cn/zwgk/jcygk/jcygk1/202201/P020211220620296518186.pdf,接待中外游客
 2019,tourism_comprehensive_revenue,165,亿元,全年,official_actual,蓟州区林业发展十四五规划,https://www.tjjz.gov.cn/zwgk/jcygk/jcygk1/202201/P020211220620296518186.pdf,
 2019,gdp,210.80,亿元,全年,official_actual,2019年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202107/t20210705_5495855.html,与2018年之间存在第四次经济普查后的统计口径断点
@@ -45,7 +45,16 @@
 2013,gdp,316.84,亿元,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,图1原值3168400万元换算为亿元
 2014,gdp,350.9092,亿元,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,图1原值3509092万元换算为亿元
 2015,gdp,390.5411,亿元,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,图1原值3905411万元换算为亿元
-2016,gdp,422.9815,亿元,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,图1原值4229815万元换算为亿元；正文四舍五入为422.98亿元
-2016,tertiary_industry_value_added,261.04,亿元,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,正文直接公布
+2016,gdp,386.54,亿元,全年,official_revised,天津统计年鉴2018·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,采用后续官方年鉴修订值；2016年公报初步值为422.98亿元
+2016,tertiary_industry_value_added,228.44,亿元,全年,official_revised,天津统计年鉴2018·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,采用后续官方年鉴修订值；2016年公报初步值为261.04亿元
 2016,tourist_arrivals,2086.27,万人次,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,正文直接公布接待中外游客
 2016,tourism_comprehensive_revenue,109.6,亿元,全年,official_actual,2016年蓟州区国民经济和社会发展统计公报,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,正文直接公布
+2010,gdp,215.47,亿元,全年,official_revised,天津统计年鉴2012·蓟县基本情况,https://stats.tj.gov.cn/nianjian/2012nj/html/22-17.htm,天津市统计局官方年鉴表22-17
+2010,tertiary_industry_value_added,136.23,亿元,全年,official_revised,天津统计年鉴2012·蓟县基本情况,https://stats.tj.gov.cn/nianjian/2012nj/html/22-17.htm,天津市统计局官方年鉴表22-17
+2012,tertiary_industry_value_added,168.36,亿元,全年,official_revised,天津统计年鉴2014·蓟县基本情况,https://stats.tj.gov.cn/nianjian/2014nj/zk/html/22-17.jpg,天津市统计局官方年鉴表22-17
+2013,tertiary_industry_value_added,184.98,亿元,全年,official_revised,天津统计年鉴2015·蓟县基本情况,https://stats.tj.gov.cn/nianjian/2015nj/zk/html/22-17.jpg,采用后续年鉴表中修订值
+2014,tertiary_industry_value_added,205.27,亿元,全年,official_revised,天津统计年鉴2016·蓟县基本情况,https://stats.tj.gov.cn/nianjian/2016nj/zk/html/22-17.jpg,天津市统计局官方年鉴表22-17
+2015,tertiary_industry_value_added,239.01,亿元,全年,official_revised,天津统计年鉴2017·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2017nj/zk/html/22-17.jpg,天津市统计局官方年鉴表22-17
+2017,gdp,365.42,亿元,全年,official_revised,天津统计年鉴2018·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,天津市统计局官方年鉴表22-17
+2017,tertiary_industry_value_added,213.38,亿元,全年,official_revised,天津统计年鉴2018·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,天津市统计局官方年鉴表22-17
+2018,tertiary_industry_value_added,234.320511170576,亿元,全年,official_revised,天津统计年鉴2019·蓟州区基本情况,https://stats.tj.gov.cn/nianjian/2019nj/zk/html/24-17-0.xls,官方年鉴表24-17；采用表中精确值

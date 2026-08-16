@@ -19,3 +19,10 @@ year,indicator,value,unit,status,source_url,note
 2016,road_mileage,2816,km,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,全区公路通车里程
 2016,road_passenger_volume,720,10k_person_trips,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公路客运量
 2016,resident_disposable_income,23042,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,全区居民人均可支配收入
+2012,rural_disposable_income,12580,cny_per_person,official_actual,https://stats.tj.gov.cn/nianjian/2014nj/zk/html/22-17.jpg,农村居民人均可支配收入
+2013,rural_disposable_income,14338,cny_per_person,official_actual,https://stats.tj.gov.cn/nianjian/2015nj/zk/html/22-17.jpg,农村居民人均可支配收入
+2014,rural_disposable_income,16279,cny_per_person,official_actual,https://stats.tj.gov.cn/nianjian/2016nj/zk/html/22-17.jpg,农村居民人均可支配收入
+2015,rural_disposable_income,17650,cny_per_person,official_actual,https://stats.tj.gov.cn/nianjian/2017nj/zk/html/22-17.jpg,农村常住居民人均可支配收入
+2016,rural_disposable_income,19165,cny_per_person,official_actual,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,农村常住居民人均可支配收入
+2016,fixed_asset_investment_non_agricultural,731.44,100m_cny,official_actual,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,不含农户固定资产投资；与全社会固定资产投资口径分列
+2017,fixed_asset_investment_non_agricultural,758.02,100m_cny,official_actual,https://stats.tj.gov.cn/nianjian/2018nj/zk/html/22-17.jpg,不含农户固定资产投资
