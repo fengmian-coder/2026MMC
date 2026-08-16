@@ -10,3 +10,12 @@ year,indicator,value,unit,status,source_url,note
 2024,road_mileage,3073,km,official_actual,https://www.tjjz.gov.cn/zwgk/sjfb/tjnb/202511/W020251126560102082891.pdf,全区境内通车总里程
 2023,boutique_homestays,304,households,official_actual,https://www.tjjz.gov.cn/zwgk/ZFGZBG_20201207/202401/t20240130_6524881.html,政府工作报告口径
 2024,boutique_homestays,405,households,official_actual,https://www.tjjz.gov.cn/xwzx/spzx/202502/t20250205_6849349.html,政府工作报告及官方新闻口径
+2012,fixed_asset_investment,420.42,100m_cny,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公报图2直接公布
+2013,fixed_asset_investment,529.14,100m_cny,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公报图2直接公布
+2014,fixed_asset_investment,635.22,100m_cny,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公报图2直接公布
+2015,fixed_asset_investment,713.31,100m_cny,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公报图2直接公布
+2016,fixed_asset_investment,788.69,100m_cny,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公报图2及正文直接公布
+2016,tertiary_industry_investment,376.64,100m_cny,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,正文直接公布
+2016,road_mileage,2816,km,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,全区公路通车里程
+2016,road_passenger_volume,720,10k_person_trips,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,公路客运量
+2016,resident_disposable_income,23042,cny_per_person,official_actual,https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/tjj1/fdzdgknr34/tjxx34/202012/t20201227_5212536.html,全区居民人均可支配收入
