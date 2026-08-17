@@ -1,5 +1,14 @@
 ﻿year,tourist_arrivals,tourist_arrivals_status,tourism_comprehensive_revenue,tourism_comprehensive_revenue_status,gdp,gdp_status,tertiary_industry_value_added,tertiary_industry_value_added_status,covid_dummy,gdp_definition_break_2019,core_missing_count
-2010,848,official_actual,35.5,official_actual,206.3,official_revised,129.3,official_revised,0,0,0
+2001,,missing,,missing,75.45,official_actual,31.13,official_actual,0,0,2
+2002,,missing,,missing,86.70,official_actual,35.52,official_actual,0,0,2
+2003,,missing,,missing,102.47,official_actual,42.39,official_actual,0,0,2
+2004,,missing,,missing,122.21,official_actual,51.00,official_actual,0,0,2
+2005,,missing,,missing,145.20,official_actual,63.00,official_actual,0,0,2
+2006,,missing,,missing,124.32,official_actual,45.18,official_actual,0,0,2
+2007,,missing,,missing,130.96,official_actual,57.75,official_actual,0,0,2
+2008,,missing,,missing,155.57,official_actual,96.78,official_actual,0,0,2
+2009,,missing,,missing,176.31,official_actual,109.20,official_actual,0,0,2
+2010,848,official_actual,35.5,official_actual,215.47,official_actual,136.23,official_actual,0,0,0
 2011,1098.6,official_actual,46,official_actual,264.5,official_actual,165,official_actual,0,0,0
 2012,1152,official_actual,52,official_actual,283.7,official_actual,169.3,official_actual,0,0,0
 2013,1295,official_actual,63.2,official_actual,312.6,official_actual,185.2,official_actual,0,0,0
