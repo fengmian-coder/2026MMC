@@ -1,0 +1,26 @@
+﻿year,region_name,gdp_100m_cny,tertiary_industry_value_added_100m_cny,source_yearbook_year,source_table,value_selection
+2000,蓟县,65.31,26.77,2002,19-18 蓟县基本情况,latest_available_vintage
+2001,蓟县,75.45,31.13,2004,22-18 蓟县基本情况,latest_available_vintage
+2002,蓟县,86.70,35.52,2004,22-18 蓟县基本情况,latest_available_vintage
+2003,蓟县,102.47,42.39,2004,22-18 蓟县基本情况,latest_available_vintage
+2004,蓟县,122.21,51.00,2005,22-18 蓟县基本情况,yearbook_vintage_cross_checked
+2005,蓟县,145.20,63.00,2006,22-18 蓟县基本情况,yearbook_vintage_cross_checked
+2006,蓟县,124.32,45.18,2008,23-18 蓟县基本情况,yearbook_table_value
+2007,蓟县,130.96,57.75,2009,23-19 蓟县基本情况,latest_available_vintage
+2008,蓟县,155.57,96.78,2010,22-19 蓟县基本情况,yearbook_table_value
+2009,蓟县,176.31,109.20,2011,蓟县基本情况,latest_available_vintage
+2010,蓟县,215.47,136.23,2012,22-17 蓟县基本情况,latest_available_vintage
+2011,蓟县,250.11,147.02,2012,22-17 蓟县基本情况,latest_available_vintage
+2012,蓟县,291.52,168.36,2014,22-17 蓟县基本情况,latest_available_vintage
+2013,蓟县,316.84,184.98,2015,22-17 蓟县基本情况,latest_available_vintage
+2014,蓟县,350.91,205.27,2016,22-17 蓟县基本情况,latest_available_vintage
+2015,蓟县,390.54,239.01,2017,22-17 蓟州区基本情况,latest_available_vintage
+2016,蓟州区,386.54,228.44,2018,22-17 蓟州区基本情况,latest_available_vintage
+2017,蓟州区,365.42,213.38,2019,24-17 蓟州区基本情况,latest_available_vintage
+2018,蓟州区,381.66,234.32,2019,24-17 蓟州区基本情况,latest_available_vintage
+2019,蓟州区,219.62,136.91,2021,25-17 蓟州区基本情况,latest_available_vintage
+2020,蓟州区,230.34,141.54,2022,25-17 蓟州区基本情况,latest_available_vintage
+2021,蓟州区,274.20,162.01,2023,25-17 蓟州区基本情况,latest_available_vintage
+2022,蓟州区,282.24,171.21,2024,25-17 蓟州区基本情况,latest_available_vintage
+2023,蓟州区,288.31,176.19,2025,25-17 蓟州区基本情况,latest_available_vintage
+2024,蓟州区,298.87,183.97,2025,25-17 蓟州区基本情况,latest_available_vintage

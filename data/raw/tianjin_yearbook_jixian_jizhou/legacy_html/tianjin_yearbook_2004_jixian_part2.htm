@@ -1,0 +1,267 @@
+<!--GMS2000系统制作 04-7-17 0:48:03-->
+<HTML>
+<HEAD>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<TITLE>22-18续表  Continued</TITLE>
+<FONT face="宋体" size=3>
+<SCRIPT LANGUAGE="JavaScript">
+var ym, pm, k, h, bz, f,np,dbl,dda,be,ed;
+function arrs(sz){
+this.length=sz;
+for(var x=1;x<=sz;x++) this[x]="";
+return this;
+}
+function arrc(sz){
+this.length=sz;
+for(var x=1;x<=sz;x++) this[x]=0;
+return this;
+}
+s=new arrs(205);
+c=new arrc(3);
+s[1]=" 0  _10  19   22-18续表  Continued";
+s[2]=" 46  51  56 ────────────────────────────────────────────┬────┬────┬────";
+s[3]=" 86  95  104                 指 标 名 称            Item                                            │  2001  │  2002  │  2003";
+s[4]=" 46  51  56 ────────────────────────────────────────────┼────┴────┴────";
+function rn(fm){
+for(var i=5;i<=204;i++) s[i]="";
+if (fm.e1.value<1) fm.e1.value=1;
+if (fm.e1.value>40) fm.e1.value=40;
+if (fm.e2.value<1) fm.e2.value=1;
+if (fm.e2.value> 3) fm.e2.value=3;
+ym=(1*fm.e1.value+(100-1*fm.e1.value%100))/100-1;
+be=ym*100+1;
+np=1*fm.e3.value;
+ed=be+200-np;
+pm=1*fm.e2.value;
+f=4;
+if (ym==0){
+s[f+1]=" 82  92  102  乡镇企业单位数(个)         Number of Township Enterprises(unit)                       │    675       523       494";
+s[f+2]=" 87  97  107   ＃工  业                    Industry                                                 │    554       472       438";
+s[f+3]=" 82  92  102  乡镇企业人数(万人)         Employment of Township Enterprises(10 000 persons)         │   6.04      5.94      6.17";
+s[f+4]=" 87  97  107   ＃工  业                    Industry                                                 │   4.79      5.23      5.47";
+s[f+5]=" 78  88  98   乡镇企业主营业务收入(万元) Major Business Revenue of Township Enterprises(10 000 yuan)│ 491019    549580    663935";
+s[f+6]=" 87  97  107   ＃工  业                    Industry                                                 │ 455618    513576    623640";
+s[f+7]=" 82  0   0    限额以上工业企业           Industrial Enterprises above Designated Size               │";
+s[f+8]=" 86  96  106    单位数(个)                 Number of Units(unit)                                    │    261       285       302";
+s[f+9]=" 84  94  104    从业人员(万人)             Persons Employed(10 000 persons)                         │   4.43      5.41      6.35";
+s[f+10]=" 85  95  105    总产值(万元)               Gross Output Value(10 000 yuan)                          │ 570437    684317    866890";
+s[f+11]=" 82  92  102    产品销售收入(万元)         Sales Revenue(10 000 yuan)                               │ 473321    583627    764649";
+s[f+12]=" 84  94  104    利税总额(万元)             Total Pre-tax Profits(10 000 yuan)                       │  48510     56067     78890";
+s[f+13]=" 82  92  102    固定资产原值(万元)         Original Value of Fixed Assets(10 000 yuan)              │ 187461    217339    279987";
+s[f+14]=" 82  92  102    流动资产合计(万元)         Total Circulating Funds(10 000 yuan)                     │ 153463    189847    205020";
+s[f+15]=" 79  89  99   社会消费品零售总额(万元)   Total Retail Sales of Consumer Goods(10 000 yuan)          │ 251196    295124    293271";
+s[f+16]=" 82  92  102  集市贸易市场数(个)         Number of Free Markets                                     │     32        32        32";
+s[f+17]=" 81  91  101  集市贸易成交额(万元)       Transaction Value of Free Markets(10 000 yuan)             │ 123000    138920    144007";
+s[f+18]=" 84  0   0   *私营工商企业               Private Industrial and Commercial Enterprises              │";
+s[f+19]=" 87  97  107    户  数(户)                 Number of Enterprises(unit)                              │    524       546       569";
+s[f+20]=" 85  95  105    雇工人数(人)               Employees(person)                                        │   5077      4836      7315";
+s[f+21]=" 84  94  104    注册资本(万元)             Registered Capital(10 000 yuan)                          │  20806     25708     52164";
+s[f+22]=" 85  95  105    总产值(万元)               Gross Output Value(10 000 yuan)                          │  13708     22422     74001";
+s[f+23]=" 84  94  104    营业收入(万元)             Business Revenue(10 000 yuan)                            │   7767     13318     24420";
+s[f+24]=" 85  0   0   *个体工商业                 Individual Industrial and Commercial Enterprises           │";
+s[f+25]=" 87  97  107    户  数(户)                 Number of Enterprises(unit)                              │  23328     12922     13386";
+s[f+26]=" 85  95  105    从业人员(人)               Persons Employed(person)                                 │  27104     20655     22405";
+s[f+27]=" 86  96  106    资  金(万元)               Fund(10 000 yuan)                                        │  28361     25993     26441";
+s[f+28]=" 85  95  105    营业额(万元)               Turnover(10 000 yuan)                                    │ 118172    103724     80085";
+s[f+29]=" 78  88  98   直接利用外资协议额(万美元) Foreign Direct Investment Contracted(USD 10 000)           │   1609      3001     12600";
+s[f+30]=" 81  91  101  外贸出口交货值(万元)       Delivery Value of Exports Trade(10 000 yuan)               │ 210000    260000    315000";
+s[f+31]=" 85  95  105 *小学校数(所)               Number of Primary Schools(unit)                            │    137       137       397";
+s[f+32]=" 82  92  102 *小学在校学生数(人)         Students Enrollment of Primary Schools(person)             │  85981     77795     82094";
+s[f+33]=" 83  93  103 *普通中学校数(所)           Number of Regular Secondary Schools(unit)                  │     63        63        66";
+s[f+34]=" 80  90  100 *普通中学在校学生数(人)     Students Enrollment of Regular Secondary Schools(person)   │  74553     79037     80145";
+s[f+35]=" 85  95  105  幼儿园数(所)               Number of Kindergartens(unit)                              │    247       117       275";
+s[f+36]=" 84  94  104  卫生机构数(个)             Health Care Institutions(unit)                             │    135       401       338";
+s[f+37]=" 83  93  103   ＃医院、卫生院              Hospital and Health Center                               │     43        37        36";
+s[f+38]=" 82  92  102  卫生机构床位数(张)         Beds(unit)                                                 │   1483      1438      1410";
+s[f+39]=" 83  93  103   ＃医院、卫生院              Hospital and Health Center                               │   1483      1438      1410";
+s[f+40]=" 46  51  56 ────────────────────────────────────────────┴──────────────";
+}
+}
+function rbl(fm){
+var cp1,cpm,r0,r1;
+pm=1*fm.e2.value;
+dbl="";
+if (pm>1){
+for (var i=1;i<=4;i++){
+cp1=eval(s[i].substring(1,4));
+if (s[i].substring(0,1)==" "){
+r0=s[i].substring(12,12+cp1-1);
+}else{
+r0=s[i].substring(12,12+cp1-2)+" ";
+}
+if (cp1<=0) r0="";
+cpm=eval(s[i].substring(4*(pm-1)+1,4*(pm-1)+4));
+if (s[i].substring(4*(pm-1),4*(pm-1)+1)==" "){
+r1=s[i].substring(12+cpm-1);
+}else{
+r1="_"+s[i].substring(12+cpm-1);
+}
+if (cpm<=0) r1="";
+dbl=dbl+r0+r1+"\n";
+}
+}else{
+for (var i=1;i<=4;i++){
+dbl=dbl+s[i].substring(12)+"\n";
+}
+}
+}
+function rda(fm){
+var cp1,cpm,r0,r1;
+dda="";
+if (pm>1){
+for (var i=4+1*fm.e1.value-be+1;i<=1*fm.e1.value-be+41;i++){
+if (s[i]=="") break;
+cp1=eval(s[i].substring(1,4));
+if (s[i].substring(0,1)==" "){
+r0=s[i].substring(12,12+cp1-1);
+}else{
+r0=s[i].substring(12,12+cp1-2)+" ";
+}
+if (cp1<=0) r0="";
+cpm=eval(s[i].substring(4*(pm-1)+1,4*(pm-1)+4));
+if (s[i].substring(4*(pm-1),4*(pm-1)+1)==" "){
+r1=s[i].substring(12+cpm-1);
+}else{
+r1="_"+s[i].substring(12+cpm-1);
+}
+if (cpm<=0) r1="";
+dda=dda+r0+r1+"\n";
+}
+}else{
+for (var i=4+1*fm.e1.value-be+1;i<=1*fm.e1.value-be+41;i++){
+if (s[i]=="") break;
+dda=dda+s[i].substring(12)+"\n";
+}
+}
+fm.t0.value=dbl+dda;
+}
+function rfn0(fm){
+rn(document.forms[0]);
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn1(fm){
+fm.e1.value=1;
+rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn2(fm){
+np=1*fm.e3.value;
+if (fm.e1.value-np>0){
+fm.e1.value=1*fm.e1.value-np;
+}else{
+fm.e1.value=1;
+}
+if (1*fm.e1.value-0<be || 1*fm.e1.value+1*np>ed) rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn3(fm){
+np=1*fm.e3.value;
+if (1*fm.e1.value+np<=40){
+fm.e1.value=1*fm.e1.value+np;
+}
+if (1*fm.e1.value-0<be || 1*fm.e1.value+1*np>ed) rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn4(fm){
+if (fm.e2.value>1) fm.e2.value-=1;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn5(fm){
+if (fm.e2.value<3) fm.e2.value=1*fm.e2.value+1;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn6(fm){
+np=fm.e3.value;
+if (40-np>0){
+fm.e1.value=40-np;
+}else{
+fm.e1.value=1;
+}
+if (fm.e1.value-0<be || fm.e1.value+1*np>ed) rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn8(fm){
+fm.e2.value=1;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn9(fm){
+fm.e2.value=3;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+</SCRIPT>
+</HEAD>
+<BODY style='overflow:scroll;overflow-y:hidden;overflow-x:hidden'>
+<style>
+
+</style>
+
+<script language="JavaScript">
+<!--
+function followmouse1(){
+//move cross engine for IE 4+
+if (event.clientY>40)
+leftright.style.pixelTop=document.body.scrollTop+event.clientY+1
+}
+function followmouse2(e){
+//move cross engine for NS 4+
+if (e.Y>40)
+document.leftright.top=e.y+1
+}
+if (document.all)
+document.onmousemove=followmouse1
+else if (document.layers){
+window.captureEvents(Event.MOUSEMOVE)
+window.onmousemove=followmouse2
+}
+function regenerate(){
+window.location.reload()
+}
+function regenerate2(){
+setTimeout("window.onresize=regenerate",400)
+}
+if ((document.all&&!window.print)||document.layers)
+//if the user is using IE 4 or NS 4, both NOT IE 5+
+window.onload=regenerate2
+//-->
+</script>
+
+<FORM>
+<CENTER>
+<TABLE BORDER=0 width=100% background="bthtm.JPG">
+<TR>
+<TD align="center"><INPUT TYPE="Button" NAME="B0" VALUE="刷新" onclick="rfn0(document.forms[0])" style="color: #800000" > </TD>
+<TD align="right">行</TD>
+<TD><INPUT TYPE="text" NAME="e1" size=3 VALUE=1></TD>
+<TD><INPUT TYPE="Button" NAME="B1" VALUE="顶" onclick="rfn1(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B2" VALUE="↑" onclick="rfn2(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B3" VALUE="↓" onclick="rfn3(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B6" VALUE="底" onclick="rfn6(document.forms[0])" style="color: #800000" ></TD>
+<TD align="right">滚行</TD>
+<TD><INPUT TYPE="text" NAME="e3" size=2 VALUE=15></TD>
+<TD align="right">列</TD>
+<TD><INPUT TYPE="text" NAME="e2" size=2 VALUE=1></TD>
+<TD><INPUT TYPE="Button" NAME="B8" VALUE="左" onclick="rfn8(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B4" VALUE="←" onclick="rfn4(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B5" VALUE="→" onclick="rfn5(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B9" VALUE="右" onclick="rfn9(document.forms[0])" style="color: #800000" ></TD>
+<TD>…</TD>
+<TD> <INPUT TYPE="Button" NAME="BC" VALUE="返回" onclick="history.back()" style="color: #800000" ></TD>
+</TR>
+</TABLE>
+</CENTER>
+<div id="leftright" style="width:expression(document.body.clientWidth-2)"></div>
+
+<textarea rows=40 name="t0" cols=138 wrap="OFF" style="font-family: 宋体; font-size: 12px; border: medium none; color=rgb(0,0,255); line-height:12px"></textarea>
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">
+rn(document.forms[0]);
+rbl(document.forms[0]);
+rda(document.forms[0]);
+</SCRIPT>
+</BODY>
+</HTML>

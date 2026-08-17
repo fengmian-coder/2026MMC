@@ -1,0 +1,5 @@
+﻿yearbook_year,data_years,region_name,table_title,part,source_url,local_file,bytes,sha256,status
+2002,2000-2001,蓟县,19-18 蓟县基本情况,主表,https://stats.tj.gov.cn/nianjian/2002nj/d19bf35.htm,tianjin_yearbook_2002_jixian_part1.htm,20849,d85b01664f849877883096a68e68a6abe8958cf8abe28c4aa2414526421417d6,downloaded
+2002,2000-2001,蓟县,19-18 蓟县基本情况,续表,https://stats.tj.gov.cn/nianjian/2002nj/d19bf36.htm,tianjin_yearbook_2002_jixian_part2.htm,17467,58370daa585a6bfba319666e4783dfdbc76e217a683457b8530e3731f7f0256b,downloaded
+2004,2001-2003,蓟县,22-18 蓟县基本情况,主表,https://stats.tj.gov.cn/nianjian/2004nj/22/2235.htm,tianjin_yearbook_2004_jixian_part1.htm,12196,f9dc2bacfbeb95745c8ae9e46af80680ef7179e367676648985a29251f527fab,downloaded
+2004,2001-2003,蓟县,22-18 蓟县基本情况,续表,https://stats.tj.gov.cn/nianjian/2004nj/22/2236.htm,tianjin_yearbook_2004_jixian_part2.htm,12044,3d5bd1bff4987e1775ea963e8d55a25b22cba32d9c5bb846dfe0d8187eb2d881,downloaded

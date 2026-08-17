@@ -1,0 +1,270 @@
+<!--GMS2000系统制作 04-7-17 0:48:03-->
+<HTML>
+<HEAD>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<TITLE>22-18  蓟县基本情况</TITLE>
+<FONT face="宋体" size=3>
+<SCRIPT LANGUAGE="JavaScript">
+var ym, pm, k, h, bz, f,np,dbl,dda,be,ed;
+function arrs(sz){
+this.length=sz;
+for(var x=1;x<=sz;x++) this[x]="";
+return this;
+}
+function arrc(sz){
+this.length=sz;
+for(var x=1;x<=sz;x++) this[x]=0;
+return this;
+}
+s=new arrs(206);
+c=new arrc(3);
+s[1]=" 0   11  21                                                         22-18  蓟县基本情况";
+s[2]=" 0   11  21                                                  BASIC STATISTICS OF JIXIAN COUNTY";
+s[3]=" 46  51  56 ────────────────────────────────────────────┬────┬────┬────";
+s[4]=" 86  95  104             指 标 名 称            Item                                                │  2001  │  2002  │  2003";
+s[5]=" 46  51  56 ────────────────────────────────────────────┼────┴────┴────";
+function rn(fm){
+for(var i=6;i<=205;i++) s[i]="";
+if (fm.e1.value<1) fm.e1.value=1;
+if (fm.e1.value>42) fm.e1.value=42;
+if (fm.e2.value<1) fm.e2.value=1;
+if (fm.e2.value> 3) fm.e2.value=3;
+ym=(1*fm.e1.value+(100-1*fm.e1.value%100))/100-1;
+be=ym*100+1;
+np=1*fm.e3.value;
+ed=be+200-np;
+pm=1*fm.e2.value;
+f=5;
+if (ym==0){
+s[f+1]=" 84  94  104 *户籍户数(万户)           Registered Households(10 000 househols)                      │  21.66     21.83     22.02";
+s[f+2]=" 86  96  106   ＃农业户                  Agricultural Households                                    │  18.53     18.56     18.60";
+s[f+3]=" 84  94  104 *户籍人口(万人)           Registered Population(10 000 persons)                        │  79.71     80.00     79.97";
+s[f+4]=" 86  96  106    1.农业人口               Agricultural Population                                    │  69.46     69.32     68.88";
+s[f+5]=" 85  95  105      非农业人口             Non-agricultural Population                                │  10.25     10.68     11.09";
+s[f+6]=" 89  99  109    2.男                     Male                                                       │  38.87     40.75     40.73";
+s[f+7]=" 89  99  109      女                     Female                                                     │  39.08     39.25     39.24";
+s[f+8]=" 83  93  103 *人口出生率(‰)           Birth Rate of Population(‰)                                 │   6.46      6.68      6.04";
+s[f+9]=" 81  91  101 *人口自然增长率(‰)       Natural Growth Rate of Population(‰)                        │   1.60      1.78      1.07";
+s[f+10]=" 80  90  100  城镇单位从业人员(万人)   Persons Employed in Urban Units(10 000 persons)              │   4.71      4.82      4.75";
+s[f+11]=" 85  95  105   ＃在岗职工                On-post Staff and Workers                                  │   4.24      4.34      4.18";
+s[f+12]=" 82  92  102 *乡村从业人员(万人)       Rural Persons Employed(10 000 persons)                       │  31.56     31.65     31.73";
+s[f+13]=" 79  89  99    ＃农林牧渔业劳动者人数    Farming,Forestry,Animal Husbandry and Fishery              │  17.01     16.43     16.51";
+s[f+14]=" 82  92  102  地区生产总值(万元)       Gross Domestic Product(10 000 yuan)                          │ 754528    867013   1024657";
+s[f+15]=" 86  96  106    第一产业                 Primary Industry                                           │ 129266    145163    165005";
+s[f+16]=" 86  96  106    第二产业                 Secondary Industry                                         │ 313988    366653    435759";
+s[f+17]=" 87  97  107     ＃工  业                  Industry                                                 │ 264951    307398    368591";
+s[f+18]=" 86  96  106    第三产业                 Tertiary Industry                                          │ 311274    355197    423893";
+s[f+19]=" 82  92  102  地区生产总值增速(%)      Increase Rate of Gross Domestic Product(%)                   │   16.2      18.6      16.4";
+s[f+20]=" 79  0   0    一般预算内县级财政收入   General Intra-budgetary Financial Revenue at County          │";
+s[f+21]=" 88  98  108                  (万元)                                     Level(10 000 yuan)         │  20220     20563     16805";
+s[f+22]=" 79  0   0    一般预算内县级财政支出   General Intra-budgetary Financial Expenditure at             │";
+s[f+23]=" 88  98  108                  (万元)                           County Level(10 000 yuan)            │  31752     37605     36429";
+s[f+24]=" 83  93  103   ＃教育经费支出            Operating Expenses for Education                           │  14510     15472     16142";
+s[f+25]=" 82  92  102 *固定资产投资(万元)       Investment in Fixed Assets(10 000 yuan)                      │ 181538    157456    150649";
+s[f+26]=" 79  89  99   年末实有耕地面积(万公顷) Cultivated Land(year-end)(10 000 hectare)                    │   5.44      5.42      5.42";
+s[f+27]=" 80  90  100  农业机械总动力(万千瓦)   Total Power of Agricultural Machinery(10 000 kw)             │  66.36     64.90     66.56";
+s[f+28]=" 84  94  104  化肥折纯量(吨)           Consumption of Chemical Fertilizers(Pureness)(ton)           │  32643     34518     34636";
+s[f+29]=" 80  90  100  农村用电量(万千瓦小时)   Rural Electricity Consumption(10 000 kwh)                    │  26251     27364     27786";
+s[f+30]=" 80  0   0    农林牧渔业总产值(万元)   Gross Output Value of Farming,Forestry,Animal                │";
+s[f+31]=" 90  100 110                                       Husbandry and Fishery(10 000 yuan)               │ 286586    313729    360118";
+s[f+32]=" 80  0   0    农林牧渔业总产值增速(%)  Increase Rate of Gross Output Value of Farming,              │";
+s[f+33]=" 90  100 110                                       Forestry,Animal Husbandry and Fishery(%)         │   17.1       9.5      14.8";
+s[f+34]=" 84  94  104  粮食产量(万吨)           Total Yield of Grain(10 000 tons)                            │  32.53     31.80     29.58";
+s[f+35]=" 84  94  104  水产品产量(吨)           Total Yield of Aquatic Products(ton)                         │  20487     21259     25600";
+s[f+36]=" 84  94  104  蔬菜总产量(吨)           Total Yield of Vegetable(ton)                                │1056750   1171781   1340642";
+s[f+37]=" 81  91  101 *农民人均年纯收入(元)     Per Capita Annual Net Income of Rural Households(yuan)       │   4452      4908      5420";
+s[f+38]=" 79  0   0   *农民人均生活消费支出(元) Per Capita Annual Expenditure for Consumption of             │";
+s[f+39]=" 90  100 110                                       Rural Households(yuan)                           │   1907      1967      2568";
+s[f+40]=" 46  51  56 ────────────────────────────────────────────┴──────────────";
+s[f+41]=" 0   0   0  ";
+s[f+42]=" 0   0   0  ";
+}
+}
+function rbl(fm){
+var cp1,cpm,r0,r1;
+pm=1*fm.e2.value;
+dbl="";
+if (pm>1){
+for (var i=1;i<=5;i++){
+cp1=eval(s[i].substring(1,4));
+if (s[i].substring(0,1)==" "){
+r0=s[i].substring(12,12+cp1-1);
+}else{
+r0=s[i].substring(12,12+cp1-2)+" ";
+}
+if (cp1<=0) r0="";
+cpm=eval(s[i].substring(4*(pm-1)+1,4*(pm-1)+4));
+if (s[i].substring(4*(pm-1),4*(pm-1)+1)==" "){
+r1=s[i].substring(12+cpm-1);
+}else{
+r1="_"+s[i].substring(12+cpm-1);
+}
+if (cpm<=0) r1="";
+dbl=dbl+r0+r1+"\n";
+}
+}else{
+for (var i=1;i<=5;i++){
+dbl=dbl+s[i].substring(12)+"\n";
+}
+}
+}
+function rda(fm){
+var cp1,cpm,r0,r1;
+dda="";
+if (pm>1){
+for (var i=5+1*fm.e1.value-be+1;i<=1*fm.e1.value-be+41;i++){
+if (s[i]=="") break;
+cp1=eval(s[i].substring(1,4));
+if (s[i].substring(0,1)==" "){
+r0=s[i].substring(12,12+cp1-1);
+}else{
+r0=s[i].substring(12,12+cp1-2)+" ";
+}
+if (cp1<=0) r0="";
+cpm=eval(s[i].substring(4*(pm-1)+1,4*(pm-1)+4));
+if (s[i].substring(4*(pm-1),4*(pm-1)+1)==" "){
+r1=s[i].substring(12+cpm-1);
+}else{
+r1="_"+s[i].substring(12+cpm-1);
+}
+if (cpm<=0) r1="";
+dda=dda+r0+r1+"\n";
+}
+}else{
+for (var i=5+1*fm.e1.value-be+1;i<=1*fm.e1.value-be+41;i++){
+if (s[i]=="") break;
+dda=dda+s[i].substring(12)+"\n";
+}
+}
+fm.t0.value=dbl+dda;
+}
+function rfn0(fm){
+rn(document.forms[0]);
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn1(fm){
+fm.e1.value=1;
+rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn2(fm){
+np=1*fm.e3.value;
+if (fm.e1.value-np>0){
+fm.e1.value=1*fm.e1.value-np;
+}else{
+fm.e1.value=1;
+}
+if (1*fm.e1.value-0<be || 1*fm.e1.value+1*np>ed) rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn3(fm){
+np=1*fm.e3.value;
+if (1*fm.e1.value+np<=42){
+fm.e1.value=1*fm.e1.value+np;
+}
+if (1*fm.e1.value-0<be || 1*fm.e1.value+1*np>ed) rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn4(fm){
+if (fm.e2.value>1) fm.e2.value-=1;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn5(fm){
+if (fm.e2.value<3) fm.e2.value=1*fm.e2.value+1;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn6(fm){
+np=fm.e3.value;
+if (42-np>0){
+fm.e1.value=42-np;
+}else{
+fm.e1.value=1;
+}
+if (fm.e1.value-0<be || fm.e1.value+1*np>ed) rn(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn8(fm){
+fm.e2.value=1;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+function rfn9(fm){
+fm.e2.value=3;
+rbl(document.forms[0]);
+rda(document.forms[0]);
+}
+</SCRIPT>
+</HEAD>
+<BODY style='overflow:scroll;overflow-y:hidden;overflow-x:hidden'>
+<style>
+
+</style>
+
+<script language="JavaScript">
+<!--
+function followmouse1(){
+//move cross engine for IE 4+
+if (event.clientY>40)
+leftright.style.pixelTop=document.body.scrollTop+event.clientY+1
+}
+function followmouse2(e){
+//move cross engine for NS 4+
+if (e.Y>40)
+document.leftright.top=e.y+1
+}
+if (document.all)
+document.onmousemove=followmouse1
+else if (document.layers){
+window.captureEvents(Event.MOUSEMOVE)
+window.onmousemove=followmouse2
+}
+function regenerate(){
+window.location.reload()
+}
+function regenerate2(){
+setTimeout("window.onresize=regenerate",400)
+}
+if ((document.all&&!window.print)||document.layers)
+//if the user is using IE 4 or NS 4, both NOT IE 5+
+window.onload=regenerate2
+//-->
+</script>
+
+<FORM>
+<CENTER>
+<TABLE BORDER=0 width=100% background="bthtm.JPG">
+<TR>
+<TD align="center"><INPUT TYPE="Button" NAME="B0" VALUE="刷新" onclick="rfn0(document.forms[0])" style="color: #800000" > </TD>
+<TD align="right">行</TD>
+<TD><INPUT TYPE="text" NAME="e1" size=3 VALUE=1></TD>
+<TD><INPUT TYPE="Button" NAME="B1" VALUE="顶" onclick="rfn1(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B2" VALUE="↑" onclick="rfn2(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B3" VALUE="↓" onclick="rfn3(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B6" VALUE="底" onclick="rfn6(document.forms[0])" style="color: #800000" ></TD>
+<TD align="right">滚行</TD>
+<TD><INPUT TYPE="text" NAME="e3" size=2 VALUE=15></TD>
+<TD align="right">列</TD>
+<TD><INPUT TYPE="text" NAME="e2" size=2 VALUE=1></TD>
+<TD><INPUT TYPE="Button" NAME="B8" VALUE="左" onclick="rfn8(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B4" VALUE="←" onclick="rfn4(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B5" VALUE="→" onclick="rfn5(document.forms[0])" style="color: #800000" ></TD>
+<TD><INPUT TYPE="Button" NAME="B9" VALUE="右" onclick="rfn9(document.forms[0])" style="color: #800000" ></TD>
+<TD>…</TD>
+<TD> <INPUT TYPE="Button" NAME="BC" VALUE="返回" onclick="history.back()" style="color: #800000" ></TD>
+</TR>
+</TABLE>
+</CENTER>
+<div id="leftright" style="width:expression(document.body.clientWidth-2)"></div>
+
+<textarea rows=40 name="t0" cols=138 wrap="OFF" style="font-family: 宋体; font-size: 12px; border: medium none; color=rgb(0,0,255); line-height:12px"></textarea>
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">
+rn(document.forms[0]);
+rbl(document.forms[0]);
+rda(document.forms[0]);
+</SCRIPT>
+</BODY>
+</HTML>
