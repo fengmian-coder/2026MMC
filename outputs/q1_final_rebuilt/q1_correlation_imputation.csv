@@ -1,0 +1,10 @@
+﻿item,value,note
+Pearson_r_strict_official,0.8991615832552369,"12 official paired years, 2011-2020 and 2023-2024"
+Pearson_p_strict_official,1.0653174848023175e-05,two-sided
+Pearson_r_with_2010_secondary,0.9152283798829111,"adds 2010 revenue 35.5, not strict-government"
+N2021_per_capita_linear,1713.3964702354788,main
+N2022_per_capita_linear,2203.23434541834,main
+N2021_natural_spline,1824.6084605500557,sensitivity
+N2022_natural_spline,2237.852636321489,sensitivity
+GDP_2019_bridge_factor,1.77431408797013,post-2019 scaled to 2018 comparable-price growth
+Tertiary_2019_bridge_factor,1.7867948287195967,post-2019 scaled
