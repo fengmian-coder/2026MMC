@@ -168,13 +168,30 @@ def acf_pacf_values(x,maxlag=5):
         pacf.append(float(np.linalg.solve(R,np.array(acf[1:k+1]))[-1]))
     return acf,pacf,1.96/math.sqrt(n)
 
-forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; stationarity=[]; stationarity_data=[]; correlogram=[]; order_rows=[]; summaries={}
+def rs_hurst(x):
+    x=np.asarray(x,float); rows=[]
+    for scale in range(4,len(x)+1):
+        vals=[]
+        for start in range(0,len(x)-scale+1):
+            seg=x[start:start+scale];dev=seg-seg.mean();s=float(seg.std(ddof=1))
+            if s<=0:continue
+            cs=np.cumsum(dev);vals.append(float((cs.max()-cs.min())/s))
+        if vals:rows.append([scale,len(vals),float(np.mean(vals))])
+    lx=np.log([r[0] for r in rows]);ly=np.log([r[2] for r in rows]);H,b=np.polyfit(lx,ly,1);fit=H*lx+b
+    r2=1-float(np.sum((ly-fit)**2))/float(np.sum((ly-ly.mean())**2))
+    return float(H),float(b),r2,rows
+
+forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; stationarity=[]; stationarity_data=[]; correlogram=[]; hurst_summary=[]; hurst_scales=[]; order_rows=[]; summaries={}
 for key,y in [('游客接待量_主插补',N_main),('旅游综合收入',I)]:
     order_rows.extend(arima_order_comparison(y,key))
     z=np.log(y);dz=np.r_[np.nan,np.diff(z)]
     for yy,raw,lv,dv in zip(year,y,z,dz):stationarity_data.append([key,int(yy),float(raw),float(lv),'' if np.isnan(dv) else float(dv)])
     ac,pac,ci=acf_pacf_values(np.diff(z),5)
     for lag in range(6):correlogram.append([key,'对数一阶差分',lag,ac[lag],pac[lag],ci,-ci,len(z)-1])
+    for transform,series in [('原对数',z),('对数一阶差分',np.diff(z))]:
+        H,b,r2,hrs=rs_hurst(series);interpretation='持续性' if H>.55 else ('反持续性' if H<.45 else '接近随机游走')
+        hurst_summary.append([key,transform,len(series),H,b,r2,interpretation,'探索性辅助，不用于直接决定ARIMA阶数或增长率'])
+        for scale,windows,rs in hrs:hurst_scales.append([key,transform,scale,windows,rs,math.log(scale),math.log(rs),H*math.log(scale)+b])
     for transform,series,reg in [('原对数',np.log(y),'ct'),('对数一阶差分',np.diff(np.log(y)),'c')]:
         astat,alag,an,acrit,adec=adf_test(series,reg)
         kstat,klag,kn,kcrit,kdec=kpss_test(series,reg)
@@ -209,6 +226,8 @@ write('q2_stationarity_tests.csv',['indicator','transform','regression','ADF_sta
 write('q2_arima_order_comparison.csv',['indicator','p','d','q','parameter_count_including_variance','conditional_loglik','AIC','AICc','BIC','in_sample_RMSE_dlog','rolling_MAPE_2023_2025_pct','drift_mean_dlog','AR_parameters','MA_parameters','parameter_boundary_flag','selected_main_model','selection_note'],order_rows)
 write('q2_stationarity_input_data.csv',['indicator','year','original_value','log_value','dlog_value'],stationarity_data)
 write('q2_acf_pacf_values.csv',['indicator','transform','lag','ACF','PACF','CI95_upper','CI95_lower','sample_size'],correlogram)
+write('q2_hurst_summary.csv',['indicator','transform','sample_size','Hurst_H','intercept','R_squared','interpretation','usage_note'],hurst_summary)
+write('q2_hurst_scale_values.csv',['indicator','transform','scale','window_count','mean_RS','log_scale','log_RS','fitted_log_RS'],hurst_scales)
 
 def svg_corr(path,title,vals,ci,color):
     W,H=760,470;L,R,T,B=80,30,58,70;lags=np.arange(len(vals));mn=-1.05;mx=1.05;sx=lambda v:L+v/max(1,len(vals)-1)*(W-L-R);sy=lambda v:T+(mx-v)/(mx-mn)*(H-T-B)
@@ -222,6 +241,20 @@ for key,prefix,label in [('游客接待量_主插补','03_游客量','游客量�
     rr=[r for r in correlogram if r[0]==key];ci=rr[0][5]
     svg_corr(FIG/f'{prefix}_ACF.svg',f'{label} ACF',[r[3] for r in rr],ci,'#1565C0')
     svg_corr(FIG/f'{prefix}_PACF.svg',f'{label} PACF',[r[4] for r in rr],ci,'#2E7D32')
+
+def svg_hurst(path,title,rows,H,b,r2,color):
+    W,Ht=760,470;L,R,T,B=85,35,58,72;x=np.array([r[5] for r in rows]);y=np.array([r[6] for r in rows]);fit=np.array([r[7] for r in rows]);xmin,xmax=float(x.min()),float(x.max());ymin,ymax=float(min(y.min(),fit.min())-.08),float(max(y.max(),fit.max())+.08);sx=lambda v:L+(v-xmin)/(xmax-xmin)*(W-L-R);sy=lambda v:T+(ymax-v)/(ymax-ymin)*(Ht-T-B)
+    p=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{Ht}"><rect width="100%" height="100%" fill="white"/><style>text{{font-family:Microsoft YaHei,Arial;font-size:14px}}</style><text x="{W/2}" y="30" text-anchor="middle" font-size="19">{title}</text>']
+    for j in range(5):
+        v=ymin+(ymax-ymin)*j/4;p.append(f'<line x1="{L}" y1="{sy(v)}" x2="{W-R}" y2="{sy(v)}" stroke="#ddd"/><text x="{L-8}" y="{sy(v)+5}" text-anchor="end">{v:.2f}</text>')
+    p.append(f'<polyline points="'+ ' '.join(f'{sx(a):.1f},{sy(c):.1f}' for a,c in zip(x,fit)) +f'" fill="none" stroke="#D84315" stroke-width="3"/>')
+    for a,c in zip(x,y):p.append(f'<circle cx="{sx(a)}" cy="{sy(c)}" r="5" fill="{color}"/>')
+    p.append(f'<text x="{L+10}" y="{T+25}" fill="#333">H={H:.4f}，R²={r2:.4f}</text><text x="{W/2}" y="{Ht-18}" text-anchor="middle">ln(尺度)</text><text transform="translate(24 {Ht/2}) rotate(-90)" text-anchor="middle">ln(R/S)</text></svg>');path.write_text("".join(p),encoding='utf-8')
+
+for key,prefix,label in [('游客接待量_主插补','05_游客量','游客量'),('旅游综合收入','06_旅游收入','旅游收入')]:
+    for transform,suffix in [('原对数','原对数'),('对数一阶差分','差分')]:
+        sr=next(r for r in hurst_summary if r[0]==key and r[1]==transform);rr=[r for r in hurst_scales if r[0]==key and r[1]==transform]
+        svg_hurst(FIG/f'{prefix}_Hurst_{suffix}.svg',f'{label}{transform} R/S-Hurst',rr,sr[3],sr[4],sr[5],'#1565C0' if transform=='原对数' else '#2E7D32')
 
 def svg_forecast(path,title,hist,rowsf,unit):
     W,H=900,520;L,R,T,B=85,35,55,65; fy=np.array([r[2] for r in rowsf]);point=np.array([r[3] for r in rowsf]);lo=np.array([r[4] for r in rowsf]);hi=np.array([r[5] for r in rowsf]);x=np.r_[year,fy];vv=np.r_[hist,lo,hi];mn=max(0,float(vv.min())*.85);mx=float(vv.max())*1.08;sx=lambda v:L+(v-2010)/20*(W-L-R);sy=lambda v:T+(mx-v)/(mx-mn)*(H-T-B)
