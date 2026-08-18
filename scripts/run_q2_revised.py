@@ -159,9 +159,22 @@ def arima_order_comparison(y,indicator):
         out.append([indicator,p,1,q,m['k'],m['ll'],m['aic'],m['aicc'],m['bic'],m['rmse_dlog'],100*np.mean(apes),m['mu'],';'.join(f'{v:.6f}' for v in m['phi']),';'.join(f'{v:.6f}' for v in m['theta']),boundary,selected,note])
     return out
 
-forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; stationarity=[]; order_rows=[]; summaries={}
+def acf_pacf_values(x,maxlag=5):
+    x=np.asarray(x,float);x=x-x.mean();n=len(x);den=float(x@x)
+    acf=[1.0]+[float(x[k:]@x[:-k]/den) for k in range(1,maxlag+1)]
+    pacf=[1.0]
+    for k in range(1,maxlag+1):
+        R=np.array([[acf[abs(i-j)] for j in range(k)] for i in range(k)])
+        pacf.append(float(np.linalg.solve(R,np.array(acf[1:k+1]))[-1]))
+    return acf,pacf,1.96/math.sqrt(n)
+
+forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; stationarity=[]; stationarity_data=[]; correlogram=[]; order_rows=[]; summaries={}
 for key,y in [('游客接待量_主插补',N_main),('旅游综合收入',I)]:
     order_rows.extend(arima_order_comparison(y,key))
+    z=np.log(y);dz=np.r_[np.nan,np.diff(z)]
+    for yy,raw,lv,dv in zip(year,y,z,dz):stationarity_data.append([key,int(yy),float(raw),float(lv),'' if np.isnan(dv) else float(dv)])
+    ac,pac,ci=acf_pacf_values(np.diff(z),5)
+    for lag in range(6):correlogram.append([key,'对数一阶差分',lag,ac[lag],pac[lag],ci,-ci,len(z)-1])
     for transform,series,reg in [('原对数',np.log(y),'ct'),('对数一阶差分',np.diff(np.log(y)),'c')]:
         astat,alag,an,acrit,adec=adf_test(series,reg)
         kstat,klag,kn,kcrit,kdec=kpss_test(series,reg)
@@ -194,6 +207,21 @@ write('q2_covid_counterfactual.csv',['indicator','covid_beta_on_dlog','growth_ef
 write('q2_bootstrap_residual_audit.csv',['indicator','scenario','removed_2020','residual_count','residual_mean_before_centering','residual_mean_after_centering'],bootstrap_audit)
 write('q2_stationarity_tests.csv',['indicator','transform','regression','ADF_stat','ADF_lag_BIC','ADF_nobs','ADF_crit_1pct','ADF_crit_5pct','ADF_crit_10pct','ADF_conclusion_5pct','KPSS_stat','KPSS_lag','KPSS_nobs','KPSS_crit_1pct','KPSS_crit_5pct','KPSS_crit_10pct','KPSS_conclusion_5pct','joint_conclusion'],stationarity)
 write('q2_arima_order_comparison.csv',['indicator','p','d','q','parameter_count_including_variance','conditional_loglik','AIC','AICc','BIC','in_sample_RMSE_dlog','rolling_MAPE_2023_2025_pct','drift_mean_dlog','AR_parameters','MA_parameters','parameter_boundary_flag','selected_main_model','selection_note'],order_rows)
+write('q2_stationarity_input_data.csv',['indicator','year','original_value','log_value','dlog_value'],stationarity_data)
+write('q2_acf_pacf_values.csv',['indicator','transform','lag','ACF','PACF','CI95_upper','CI95_lower','sample_size'],correlogram)
+
+def svg_corr(path,title,vals,ci,color):
+    W,H=760,470;L,R,T,B=80,30,58,70;lags=np.arange(len(vals));mn=-1.05;mx=1.05;sx=lambda v:L+v/max(1,len(vals)-1)*(W-L-R);sy=lambda v:T+(mx-v)/(mx-mn)*(H-T-B)
+    p=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"><rect width="100%" height="100%" fill="white"/><style>text{{font-family:Microsoft YaHei,Arial;font-size:14px}}</style><text x="{W/2}" y="30" text-anchor="middle" font-size="19">{title}</text>']
+    for v in [-1,-.5,0,.5,1]:p.append(f'<line x1="{L}" y1="{sy(v)}" x2="{W-R}" y2="{sy(v)}" stroke="{("#555" if v==0 else "#ddd")}"/><text x="{L-10}" y="{sy(v)+5}" text-anchor="end">{v:.1f}</text>')
+    for c in [ci,-ci]:p.append(f'<line x1="{L}" y1="{sy(c)}" x2="{W-R}" y2="{sy(c)}" stroke="#D84315" stroke-width="2" stroke-dasharray="7 5"/>')
+    for lag,v in zip(lags,vals):p.append(f'<line x1="{sx(lag)}" y1="{sy(0)}" x2="{sx(lag)}" y2="{sy(v)}" stroke="{color}" stroke-width="7"/><circle cx="{sx(lag)}" cy="{sy(v)}" r="4" fill="{color}"/><text x="{sx(lag)}" y="{H-B+25}" text-anchor="middle">{lag}</text>')
+    p.append(f'<text x="{W/2}" y="{H-18}" text-anchor="middle">滞后阶数</text><text transform="translate(22 {H/2}) rotate(-90)" text-anchor="middle">相关系数</text><text x="{W-R-5}" y="{sy(ci)-8}" text-anchor="end" fill="#D84315">95%置信界 ±{ci:.3f}</text></svg>');path.write_text("".join(p),encoding='utf-8')
+
+for key,prefix,label in [('游客接待量_主插补','03_游客量','游客量对数一阶差分'),('旅游综合收入','04_旅游收入','旅游收入对数一阶差分')]:
+    rr=[r for r in correlogram if r[0]==key];ci=rr[0][5]
+    svg_corr(FIG/f'{prefix}_ACF.svg',f'{label} ACF',[r[3] for r in rr],ci,'#1565C0')
+    svg_corr(FIG/f'{prefix}_PACF.svg',f'{label} PACF',[r[4] for r in rr],ci,'#2E7D32')
 
 def svg_forecast(path,title,hist,rowsf,unit):
     W,H=900,520;L,R,T,B=85,35,55,65; fy=np.array([r[2] for r in rowsf]);point=np.array([r[3] for r in rowsf]);lo=np.array([r[4] for r in rowsf]);hi=np.array([r[5] for r in rowsf]);x=np.r_[year,fy];vv=np.r_[hist,lo,hi];mn=max(0,float(vv.min())*.85);mx=float(vv.max())*1.08;sx=lambda v:L+(v-2010)/20*(W-L-R);sy=lambda v:T+(mx-v)/(mx-mn)*(H-T-B)
