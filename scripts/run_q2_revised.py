@@ -45,11 +45,17 @@ def rolling_metrics(y, method, targets):
 def bootstrap(y, scenario, nsim=200000):
     m=drift_fit(y,2025); resid=m['resid'].copy(); yrs=m['years']
     if scenario=='baseline': resid=resid[yrs!=2020]
+    # Residual bootstrap requires zero-mean innovations. Removing the extreme
+    # 2020 residual changes the sample mean, so re-center the filtered pool.
+    mean_before=float(resid.mean())
+    resid=resid-mean_before
+    mean_after=float(resid.mean())
     rng=np.random.default_rng(20260818 if scenario=='baseline' else 20260819)
     shocks=rng.choice(resid,size=(nsim,5),replace=True); cs=np.cumsum(shocks,axis=1)
     h=np.arange(1,6); paths=np.exp(math.log(y[-1])+h*m['c']+cs)
     center=y[-1]*np.exp(h*m['c']); lo=np.quantile(paths,.025,axis=0); hi=np.quantile(paths,.975,axis=0)
-    return m,center,lo,hi
+    audit={'scenario':scenario,'removed_2020':scenario=='baseline','residual_count':len(resid),'residual_mean_before_centering':mean_before,'residual_mean_after_centering':mean_after}
+    return m,center,lo,hi,audit
 
 def covid_analysis(y):
     d=np.diff(np.log(y)); yrs=year[1:]; D=((yrs>=2020)&(yrs<=2022)).astype(float);X=np.column_stack([np.ones(len(d)),D]);b=np.linalg.lstsq(X,d,rcond=None)[0]
@@ -58,7 +64,7 @@ def covid_analysis(y):
         base*=math.exp(c); actual=y[year==yy][0];cf.append([yy,actual,base,1-actual/base])
     return c,beta,math.exp(beta)-1,cf
 
-forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; summaries={}
+forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; summaries={}
 for key,y in [('游客接待量_主插补',N_main),('旅游综合收入',I)]:
     train=drift_fit(y,2024); p25=y[year==2024][0]*math.exp(train['c']);ape=abs(y[-1]-p25)/y[-1]
     hm=holt_damped_fit(y,2024);hp25=holt_forecast(hm,1);hape=abs(y[-1]-hp25)/y[-1]
@@ -69,11 +75,12 @@ for key,y in [('游客接待量_主插补',N_main),('旅游综合收入',I)]:
     for rr in cf:covid_rows.append([key,bet,impact,*rr])
     summaries[key]={'holdout_prediction':p25,'holdout_actual':y[-1],'holdout_APE':ape,'drift_train_2010_2024':train['c'],'holt_2025':hp25,'holt_APE':hape,'covid_beta':bet,'covid_growth_effect':impact}
     for scen in ['baseline','stress']:
-        full,center,lo,hi=bootstrap(y,scen)
+        full,center,lo,hi,audit=bootstrap(y,scen)
+        bootstrap_audit.append([key,audit['scenario'],audit['removed_2020'],audit['residual_count'],audit['residual_mean_before_centering'],audit['residual_mean_after_centering']])
         for i,yy in enumerate(range(2026,2031)):forecasts.append([key,scen,yy,center[i],lo[i],hi[i],full['c'],full['g']])
 
 for label,y in [('主插补',N_main),('自然样条',N_spline)]:
-    full,center,lo,hi=bootstrap(y,'baseline')
+    full,center,lo,hi,audit=bootstrap(y,'baseline')
     for i,yy in enumerate(range(2026,2031)):sensitivity.append([label,yy,center[i],lo[i],hi[i],full['c'],full['g']])
 
 def write(name,header,data):
@@ -82,6 +89,7 @@ write('q2_model_validation.csv',['indicator','model','normal_RMSE','normal_MAPE_
 write('q2_forecast_2026_2030.csv',['indicator','scenario','year','point_forecast','PI95_low','PI95_high','log_drift','annual_growth'],forecasts)
 write('q2_arrivals_imputation_sensitivity.csv',['imputation','year','point_forecast','PI95_low','PI95_high','log_drift','annual_growth'],sensitivity)
 write('q2_covid_counterfactual.csv',['indicator','covid_beta_on_dlog','growth_effect','year','actual_or_model_value','no_covid_counterfactual','level_gap_ratio'],covid_rows)
+write('q2_bootstrap_residual_audit.csv',['indicator','scenario','removed_2020','residual_count','residual_mean_before_centering','residual_mean_after_centering'],bootstrap_audit)
 
 def svg_forecast(path,title,hist,rowsf,unit):
     W,H=900,520;L,R,T,B=85,35,55,65; fy=np.array([r[2] for r in rowsf]);point=np.array([r[3] for r in rowsf]);lo=np.array([r[4] for r in rowsf]);hi=np.array([r[5] for r in rowsf]);x=np.r_[year,fy];vv=np.r_[hist,lo,hi];mn=max(0,float(vv.min())*.85);mx=float(vv.max())*1.08;sx=lambda v:L+(v-2010)/20*(W-L-R);sy=lambda v:T+(mx-v)/(mx-mn)*(H-T-B)
