@@ -1,0 +1,5 @@
+﻿indicator,scenario,removed_2020,residual_count,residual_mean_before_centering,residual_mean_after_centering
+游客接待量_主插补,baseline,True,14,0.03495753043140638,4.956352788505163e-18
+游客接待量_主插补,stress,False,15,0.0,0.0
+旅游综合收入,baseline,True,14,0.04161377308314497,-3.96508223080413e-18
+旅游综合收入,stress,False,15,7.401486830834377e-18,7.401486830834377e-18
