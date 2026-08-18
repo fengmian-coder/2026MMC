@@ -64,8 +64,110 @@ def covid_analysis(y):
         base*=math.exp(c); actual=y[year==yy][0];cf.append([yy,actual,base,1-actual/base])
     return c,beta,math.exp(beta)-1,cf
 
-forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; summaries={}
+def adf_critical_values(regression,nobs):
+    # MacKinnon (2010) response-surface coefficients, N=1.
+    coeff={
+      'c':{'1%':[-3.43035,-6.5393,-16.786,-79.433],'5%':[-2.86154,-2.8903,-4.234,-40.040],'10%':[-2.56677,-1.5384,-2.809,-3.480]},
+      'ct':{'1%':[-3.95877,-9.0531,-28.428,-134.155],'5%':[-3.41049,-4.3904,-9.036,-45.374],'10%':[-3.12705,-2.5856,-3.925,-22.380]}}
+    z=1.0/nobs
+    return {k:float(sum(a*z**i for i,a in enumerate(v))) for k,v in coeff[regression].items()}
+
+def adf_test(x,regression,maxlag=2):
+    x=np.asarray(x,float); dy=np.diff(x); candidates=[]
+    for lag in range(maxlag+1):
+        yy=dy[lag:]; cols=[x[lag:-1],np.ones(len(yy))]
+        if regression=='ct': cols.append(np.arange(lag+2,len(x)+1,dtype=float))
+        for j in range(1,lag+1):cols.append(dy[lag-j:-j])
+        X=np.column_stack(cols); beta=np.linalg.lstsq(X,yy,rcond=None)[0]; e=yy-X@beta
+        n=len(yy); k=X.shape[1]; sse=float(e@e); bic=n*math.log(sse/n)+k*math.log(n)
+        sigma2=sse/(n-k); se=math.sqrt(sigma2*np.linalg.inv(X.T@X)[0,0]); stat=float(beta[0]/se)
+        candidates.append((bic,lag,n,stat))
+    _,lag,nobs,stat=min(candidates,key=lambda z:z[0]); crit=adf_critical_values(regression,nobs)
+    decision='拒绝单位根，序列平稳' if stat<crit['5%'] else '不能拒绝单位根，序列非平稳'
+    return stat,lag,nobs,crit,decision
+
+def kpss_test(x,regression,nlags=2):
+    x=np.asarray(x,float); n=len(x)
+    if regression=='ct':
+        X=np.column_stack([np.ones(n),np.arange(1,n+1,dtype=float)]); resid=x-X@np.linalg.lstsq(X,x,rcond=None)[0]
+        crit={'10%':0.119,'5%':0.146,'2.5%':0.176,'1%':0.216}
+    else:
+        resid=x-x.mean(); crit={'10%':0.347,'5%':0.463,'2.5%':0.574,'1%':0.739}
+    eta=float(np.sum(np.cumsum(resid)**2)/(n*n)); s2=float(resid@resid/n)
+    for lag in range(1,nlags+1):s2+=2*(1-lag/(nlags+1))*float(resid[lag:]@resid[:-lag])/n
+    stat=eta/s2
+    decision='拒绝平稳性，序列非平稳' if stat>crit['5%'] else '不能拒绝平稳性，序列平稳'
+    return stat,nlags,n,crit,decision
+
+def _nelder_mead(fun,x0,step=.18,maxiter=1400,tol=1e-10):
+    n=len(x0); simplex=[np.array(x0,float)]
+    for i in range(n):
+        z=np.array(x0,float); z[i]+=step; simplex.append(z)
+    vals=[fun(z) for z in simplex]
+    for _ in range(maxiter):
+        order=np.argsort(vals); simplex=[simplex[i] for i in order]; vals=[vals[i] for i in order]
+        if np.std(vals)<tol:break
+        c=np.mean(simplex[:-1],axis=0); xr=c+(c-simplex[-1]); fr=fun(xr)
+        if vals[0]<=fr<vals[-2]:simplex[-1],vals[-1]=xr,fr;continue
+        if fr<vals[0]:
+            xe=c+2*(xr-c);fe=fun(xe)
+            simplex[-1],vals[-1]=(xe,fe) if fe<fr else (xr,fr);continue
+        xc=c+.5*(simplex[-1]-c);fc=fun(xc)
+        if fc<vals[-1]:simplex[-1],vals[-1]=xc,fc;continue
+        simplex=[simplex[0]]+[simplex[0]+.5*(z-simplex[0]) for z in simplex[1:]];vals=[fun(z) for z in simplex]
+    i=int(np.argmin(vals));return simplex[i],vals[i]
+
+def arma_css_fit(w,p,q):
+    w=np.asarray(w,float); n=len(w)
+    def unpack(u):return float(u[0]),.98*np.tanh(u[1:1+p]),.98*np.tanh(u[1+p:1+p+q])
+    def calc(u):
+        mu,phi,theta=unpack(u);e=np.zeros(n)
+        for t in range(n):
+            pred=mu
+            for i in range(p):pred+=phi[i]*((w[t-i-1] if t-i-1>=0 else mu)-mu)
+            for j in range(q):pred+=theta[j]*(e[t-j-1] if t-j-1>=0 else 0.0)
+            e[t]=w[t]-pred
+        return e
+    def obj(u):
+        e=calc(u);return float(e@e)
+    base=np.r_[w.mean(),np.zeros(p+q)];starts=[base]
+    rng=np.random.default_rng(20260818+p*10+q)
+    for _ in range(7):starts.append(base+np.r_[rng.normal(0,.04),rng.normal(0,.35,p+q)])
+    fits=[_nelder_mead(obj,s) for s in starts];u,sse=min(fits,key=lambda z:z[1]);mu,phi,theta=unpack(u);e=calc(u)
+    sigma2=max(sse/n,1e-15);ll=-.5*n*(math.log(2*math.pi)+1+math.log(sigma2));k=p+q+2
+    aic=-2*ll+2*k;bic=-2*ll+k*math.log(n);aicc=aic+2*k*(k+1)/(n-k-1) if n>k+1 else float('inf')
+    return {'mu':mu,'phi':phi,'theta':theta,'resid':e,'ll':ll,'aic':aic,'aicc':aicc,'bic':bic,'k':k,'rmse_dlog':math.sqrt(sse/n)}
+
+def arma_next(w,m):
+    p=len(m['phi']);q=len(m['theta']);pred=m['mu'];e=m['resid'];n=len(w)
+    for i in range(p):pred+=m['phi'][i]*(w[n-i-1]-m['mu'])
+    for j in range(q):pred+=m['theta'][j]*e[n-j-1]
+    return float(pred)
+
+def arima_order_comparison(y,indicator):
+    z=np.log(y);w=np.diff(z);out=[]
+    for p in range(3):
+      for q in range(3):
+        m=arma_css_fit(w,p,q);apes=[]
+        for yy in [2023,2024,2025]:
+            idx=int(np.where(year==yy)[0][0]);wt=np.diff(z[:idx]);mt=arma_css_fit(wt,p,q);pred=math.exp(z[idx-1]+arma_next(wt,mt));apes.append(abs(y[idx]-pred)/y[idx])
+        boundary=bool(any(abs(v)>=.95 for v in np.r_[m['phi'],m['theta']]))
+        selected=(p==0 and q==0)
+        if selected: note='主模型：结构最简，且滚动预测稳定'
+        elif boundary: note='参数接近边界，存在小样本过拟合风险'
+        else: note='候选模型，不作为主模型'
+        out.append([indicator,p,1,q,m['k'],m['ll'],m['aic'],m['aicc'],m['bic'],m['rmse_dlog'],100*np.mean(apes),m['mu'],';'.join(f'{v:.6f}' for v in m['phi']),';'.join(f'{v:.6f}' for v in m['theta']),boundary,selected,note])
+    return out
+
+forecasts=[]; validation=[]; sensitivity=[]; covid_rows=[]; bootstrap_audit=[]; stationarity=[]; order_rows=[]; summaries={}
 for key,y in [('游客接待量_主插补',N_main),('旅游综合收入',I)]:
+    order_rows.extend(arima_order_comparison(y,key))
+    for transform,series,reg in [('原对数',np.log(y),'ct'),('对数一阶差分',np.diff(np.log(y)),'c')]:
+        astat,alag,an,acrit,adec=adf_test(series,reg)
+        kstat,klag,kn,kcrit,kdec=kpss_test(series,reg)
+        adf_stationary=adec.startswith('拒绝单位根'); kpss_stationary=kdec.startswith('不能拒绝平稳性')
+        joint='支持平稳' if (adf_stationary and kpss_stationary) else ('支持非平稳' if ((not adf_stationary) and (not kpss_stationary)) else '结论不完全一致，结合图形与差分结果判断')
+        stationarity.append([key,transform,reg,astat,alag,an,acrit['1%'],acrit['5%'],acrit['10%'],adec,kstat,klag,kn,kcrit['1%'],kcrit['5%'],kcrit['10%'],kdec,joint])
     train=drift_fit(y,2024); p25=y[year==2024][0]*math.exp(train['c']);ape=abs(y[-1]-p25)/y[-1]
     hm=holt_damped_fit(y,2024);hp25=holt_forecast(hm,1);hape=abs(y[-1]-hp25)/y[-1]
     for meth in ['arima','holt']:
@@ -90,6 +192,8 @@ write('q2_forecast_2026_2030.csv',['indicator','scenario','year','point_forecast
 write('q2_arrivals_imputation_sensitivity.csv',['imputation','year','point_forecast','PI95_low','PI95_high','log_drift','annual_growth'],sensitivity)
 write('q2_covid_counterfactual.csv',['indicator','covid_beta_on_dlog','growth_effect','year','actual_or_model_value','no_covid_counterfactual','level_gap_ratio'],covid_rows)
 write('q2_bootstrap_residual_audit.csv',['indicator','scenario','removed_2020','residual_count','residual_mean_before_centering','residual_mean_after_centering'],bootstrap_audit)
+write('q2_stationarity_tests.csv',['indicator','transform','regression','ADF_stat','ADF_lag_BIC','ADF_nobs','ADF_crit_1pct','ADF_crit_5pct','ADF_crit_10pct','ADF_conclusion_5pct','KPSS_stat','KPSS_lag','KPSS_nobs','KPSS_crit_1pct','KPSS_crit_5pct','KPSS_crit_10pct','KPSS_conclusion_5pct','joint_conclusion'],stationarity)
+write('q2_arima_order_comparison.csv',['indicator','p','d','q','parameter_count_including_variance','conditional_loglik','AIC','AICc','BIC','in_sample_RMSE_dlog','rolling_MAPE_2023_2025_pct','drift_mean_dlog','AR_parameters','MA_parameters','parameter_boundary_flag','selected_main_model','selection_note'],order_rows)
 
 def svg_forecast(path,title,hist,rowsf,unit):
     W,H=900,520;L,R,T,B=85,35,55,65; fy=np.array([r[2] for r in rowsf]);point=np.array([r[3] for r in rowsf]);lo=np.array([r[4] for r in rowsf]);hi=np.array([r[5] for r in rowsf]);x=np.r_[year,fy];vv=np.r_[hist,lo,hi];mn=max(0,float(vv.min())*.85);mx=float(vv.max())*1.08;sx=lambda v:L+(v-2010)/20*(W-L-R);sy=lambda v:T+(mx-v)/(mx-mn)*(H-T-B)
