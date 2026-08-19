@@ -19,8 +19,8 @@
 <rect x="470.8" y="291.5" width="148.5" height="238.5" fill="#10b981"/>
 <text x="545.0" y="281.5" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">7.38%</text>
 <text x="545.0" y="562" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">Q</text>
-<rect x="740.8" y="513.0" width="148.5" height="17.0" fill="#f59e0b"/>
-<text x="815.0" y="503.0" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">0.53%</text>
+<rect x="740.8" y="514.2" width="148.5" height="15.8" fill="#f59e0b"/>
+<text x="815.0" y="504.2" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">0.49%</text>
 <text x="815.0" y="562" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">F</text>
 <text x="28" y="325.0" transform="rotate(-90 28 325.0)" text-anchor="middle" font-size="18" font-family="Microsoft YaHei">五年归一化敏感度</text>
 </svg>
