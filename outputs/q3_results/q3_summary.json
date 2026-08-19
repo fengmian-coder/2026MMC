@@ -17,6 +17,101 @@
     "r2": 0.917007812813843
   },
   "covid_log_shock": -0.15688691361670287,
+  "F_revision": {
+    "best_lag_by_AICc": 1,
+    "beta_F": 0.07867073688659101,
+    "HAC_SE": 0.040100539798718984,
+    "p_value": 0.08541507945836496,
+    "years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2024,
+      2025
+    ],
+    "shock2020_identifiable": false,
+    "lag_comparison": [
+      {
+        "lag": 0,
+        "years": "2013;2014;2015;2016;2017;2018",
+        "n": 6,
+        "Shock2020_identifiable": "no (all zero)",
+        "beta_F": -0.017142204156299447,
+        "HAC_SE": 0.02807380889986669,
+        "p_value": 0.5744482382588594,
+        "R2": 0.04778604827418309,
+        "adjusted_R2": -0.19026743965727122,
+        "AIC": -34.45455279334208,
+        "AICc": -30.45455279334208,
+        "BIC": -34.87103385488597,
+        "LOOCV_RMSE": 0.07782380851481643,
+        "selected_by_AICc": false
+      },
+      {
+        "lag": 1,
+        "years": "2013;2014;2015;2016;2017;2018",
+        "n": 6,
+        "Shock2020_identifiable": "no (all zero)",
+        "beta_F": 0.05158072131821782,
+        "HAC_SE": 0.022609552157443247,
+        "p_value": 0.08465867980778516,
+        "R2": 0.42658020145717157,
+        "adjusted_R2": 0.2832252518214644,
+        "AIC": -37.49758279875417,
+        "AICc": -33.49758279875417,
+        "BIC": -37.914063860298064,
+        "LOOCV_RMSE": 0.04517525770143198,
+        "selected_by_AICc": true
+      },
+      {
+        "lag": 2,
+        "years": "2013;2014;2015;2016;2017;2018",
+        "n": 6,
+        "Shock2020_identifiable": "no (all zero)",
+        "beta_F": -0.0038986627638747592,
+        "HAC_SE": 0.020591884634254046,
+        "p_value": 0.8590529934698665,
+        "R2": 0.0022028982519853857,
+        "adjusted_R2": -0.24724637718501818,
+        "AIC": -34.17399158115346,
+        "AICc": -30.17399158115346,
+        "BIC": -34.59047264269735,
+        "LOOCV_RMSE": 0.05381883653054941,
+        "selected_by_AICc": false
+      }
+    ],
+    "granger": [
+      {
+        "test": "dlnF → dlnY",
+        "years": "2012-2018",
+        "n": 7,
+        "F_stat": 2.1375146166781036,
+        "p_value": 0.2175483348302527,
+        "driver_coefficient": 0.0489906321488907,
+        "driver_HAC_SE": 0.027770458260949867,
+        "driver_HAC_p": 0.15248057338511947,
+        "Shock2020_identifiable": "no (continuous block ends 2018)",
+        "interpretation": "auxiliary predictive-leading test only"
+      },
+      {
+        "test": "dlnY → dlnF",
+        "years": "2012-2018",
+        "n": 7,
+        "F_stat": 1.904160266790035,
+        "p_value": 0.23972575217639236,
+        "driver_coefficient": -6.2196038819094746,
+        "driver_HAC_SE": 4.692698022407609,
+        "driver_HAC_p": 0.2556782113469629,
+        "Shock2020_identifiable": "no (continuous block ends 2018)",
+        "interpretation": "auxiliary predictive-leading test only"
+      }
+    ]
+  },
   "general_event_loss": 0.07544566429338695,
   "pandemic_event_loss": 0.14519928032610352,
   "sensitivity_rank_20pct": [

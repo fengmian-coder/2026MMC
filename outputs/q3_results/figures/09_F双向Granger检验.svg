@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="500.0" y="38" text-anchor="middle" font-size="25" font-family="Microsoft YaHei" font-weight="700">F与旅游收入双向Granger辅助检验</text>
+<line x1="140" y1="530.0" x2="950" y2="530.0" stroke="#e5e7eb"/>
+<text x="128" y="535.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">0.0%</text>
+<line x1="140" y1="440.0" x2="950" y2="440.0" stroke="#e5e7eb"/>
+<text x="128" y="445.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">5.7%</text>
+<line x1="140" y1="350.0" x2="950" y2="350.0" stroke="#e5e7eb"/>
+<text x="128" y="355.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">11.3%</text>
+<line x1="140" y1="260.0" x2="950" y2="260.0" stroke="#e5e7eb"/>
+<text x="128" y="265.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">17.0%</text>
+<line x1="140" y1="170.0" x2="950" y2="170.0" stroke="#e5e7eb"/>
+<text x="128" y="175.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">22.6%</text>
+<line x1="140" y1="80.0" x2="950" y2="80.0" stroke="#e5e7eb"/>
+<text x="128" y="85.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">28.3%</text>
+<rect x="231.1" y="183.9" width="222.8" height="346.1" fill="#2563eb"/>
+<text x="342.5" y="173.9" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">21.75%</text>
+<text x="342.5" y="562" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">dlnF → dlnY</text>
+<rect x="636.1" y="148.6" width="222.8" height="381.4" fill="#10b981"/>
+<text x="747.5" y="138.6" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">23.97%</text>
+<text x="747.5" y="562" text-anchor="middle" font-size="17" font-family="Microsoft YaHei">dlnY → dlnF</text>
+<text x="28" y="325.0" transform="rotate(-90 28 325.0)" text-anchor="middle" font-size="18" font-family="Microsoft YaHei">p值</text>
+</svg>

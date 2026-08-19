@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700"><rect width="100%" height="100%" fill="white"/>
+<text x="550.0" y="36" text-anchor="middle" font-size="25" font-family="Microsoft YaHei" font-weight="700">财政投入对数增长率 ΔlnF</text>
+<line x1="110" y1="600.0" x2="1055" y2="600.0" stroke="#e5e7eb"/>
+<text x="98" y="605.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">-0.607</text>
+<line x1="110" y1="495.0" x2="1055" y2="495.0" stroke="#e5e7eb"/>
+<text x="98" y="500.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">-0.211</text>
+<line x1="110" y1="390.0" x2="1055" y2="390.0" stroke="#e5e7eb"/>
+<text x="98" y="395.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">0.186</text>
+<line x1="110" y1="285.0" x2="1055" y2="285.0" stroke="#e5e7eb"/>
+<text x="98" y="290.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">0.582</text>
+<line x1="110" y1="180.0" x2="1055" y2="180.0" stroke="#e5e7eb"/>
+<text x="98" y="185.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">0.978</text>
+<line x1="110" y1="75.0" x2="1055" y2="75.0" stroke="#e5e7eb"/>
+<text x="98" y="80.0" text-anchor="end" font-size="15" font-family="Microsoft YaHei">1.374</text>
+<line x1="110" y1="75" x2="110" y2="600" stroke="#374151"/><line x1="110" y1="600" x2="1055" y2="600" stroke="#374151"/>
+<text x="25" y="350.0" transform="rotate(-90 25 350.0)" text-anchor="middle" font-size="18" font-family="Microsoft YaHei">ΔlnF</text>
+<text x="110.0" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2011</text>
+<text x="182.7" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2012</text>
+<text x="255.4" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2013</text>
+<text x="328.1" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2014</text>
+<text x="400.8" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2015</text>
+<text x="473.5" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2016</text>
+<text x="546.2" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2017</text>
+<text x="618.8" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2018</text>
+<text x="691.5" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2019</text>
+<text x="764.2" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2020</text>
+<text x="836.9" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2021</text>
+<text x="909.6" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2022</text>
+<text x="982.3" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2023</text>
+<text x="1055.0" y="630" text-anchor="middle" font-size="14" font-family="Microsoft YaHei">2024</text>
+<circle cx="110.0" cy="373.0" r="6" fill="#7c3aed"/>
+<line x1="110.0" y1="373.0" x2="182.7" y2="369.8" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="182.7" cy="369.8" r="6" fill="#7c3aed"/>
+<line x1="182.7" y1="369.8" x2="255.4" y2="125.8" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="255.4" cy="125.8" r="6" fill="#7c3aed"/>
+<line x1="255.4" y1="125.8" x2="328.1" y2="549.2" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="328.1" cy="549.2" r="6" fill="#7c3aed"/>
+<line x1="328.1" y1="549.2" x2="400.8" y2="468.4" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="400.8" cy="468.4" r="6" fill="#7c3aed"/>
+<line x1="400.8" y1="468.4" x2="473.5" y2="304.1" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="473.5" cy="304.1" r="6" fill="#7c3aed"/>
+<line x1="473.5" y1="304.1" x2="546.2" y2="479.9" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="546.2" cy="479.9" r="6" fill="#7c3aed"/>
+<line x1="546.2" y1="479.9" x2="618.8" y2="338.1" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="618.8" cy="338.1" r="6" fill="#7c3aed"/>
+<circle cx="982.3" cy="511.1" r="6" fill="#7c3aed"/>
+<line x1="982.3" y1="511.1" x2="1055.0" y2="467.1" stroke="#7c3aed" stroke-width="4"/>
+<circle cx="1055.0" cy="467.1" r="6" fill="#7c3aed"/>
+</svg>
