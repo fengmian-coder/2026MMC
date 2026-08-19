@@ -1,0 +1,28 @@
+{
+  "visitor_scenario_scale": 0.7271997500305065,
+  "M_refit": {
+    "years": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2024,
+      2025
+    ],
+    "coefficient_dlnM": 4.0029224863510535,
+    "p_dlnM": 0.19611245298440724,
+    "coefficient_shock2020": 0.05445224810162848,
+    "p_shock2020": 0.8959918902264409,
+    "n": 6,
+    "r2": 0.917007812813843
+  },
+  "covid_log_shock": -0.15688691361670287,
+  "general_event_loss": 0.07544566429338695,
+  "pandemic_event_loss": 0.14519928032610352,
+  "sensitivity_rank_20pct": [
+    "M",
+    "Q",
+    "F"
+  ],
+  "uq_link_normalized_sensitivity": 0.21875312665499266
+}
