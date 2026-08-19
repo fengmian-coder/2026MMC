@@ -1,0 +1,4 @@
+﻿scenario,M_growth,Q_2026,Q_2027_2030,F_growth,U_increment
+baseline,0.0377,0.216,0.216,0.075,0.9
+optimistic,0.0494,0.283,0.308,0.1,1.131
+pessimistic,0.0053,0.032,0.032,0.0,0.669
